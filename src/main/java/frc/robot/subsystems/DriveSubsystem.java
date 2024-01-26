@@ -84,7 +84,7 @@ tankDriveController.setMaxOutput(1.0);
 
     public void driveWithStick(){
         Joystick stick = RobotContainer.getInstance().getJoystick1();
-        tankDriveController.arcadeDrive(-stick.getY(), stick.getZ(),true);
+        tankDriveController.arcadeDrive(stick.getY(), -stick.getZ(),true);
     }
 
     public void driveWithValues(double y, double z){

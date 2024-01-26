@@ -53,11 +53,11 @@ public class DriveChase extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        table = NetworkTableInstance.getDefault().getTable("limelight");
+        table = NetworkTableInstance.getDefault().getTable("limelight-cybears");
     }
 
     private boolean hasTarget(){
-        return table.getEntry("tv").getDouble(0) == 0;
+        return table.getEntry("tv").getDouble(0) == 1;
     }
 
     // Called every time the scheduler runs while the command is scheduled.
@@ -68,15 +68,54 @@ public class DriveChase extends Command {
             SmartDashboard.putNumber("Limelight tx", table.getEntry("tx").getDouble(0));
             SmartDashboard.putNumber("Limelight ty", table.getEntry("ty").getDouble(0));
             SmartDashboard.putNumber("Limelight ta", table.getEntry("ta").getDouble(0));
- 
-        }
-        
-        m_driveSubsystem.driveWithValues(0, 0);
-        // Determine screen offset to target
+            double limelightTX = table.getEntry("tx").getDouble(0);
+            double limelightTA = table.getEntry("ta").getDouble(0);
+            //System.out.println(limelightTX);
+            
+            // if(limelightTX < -1) {
+            //     //System.out.println(limelightTX + "is small");
+            //     m_driveSubsystem.driveWithValues(0, 0.7);
+            // } else if(limelightTX > 1) {
+            //     //System.out.println(limelightTX + "is big");
+            //     m_driveSubsystem.driveWithValues(0, -0.7);
+            // }else{
+            //     m_driveSubsystem.driveWithValues(0, 0);
+            // }
+            // if(limelightTA < 5) {
+            //     m_driveSubsystem.driveWithValues(-0.5, 0.0);
+            // }else{
+            //     m_driveSubsystem.driveWithValues(0, 0);
+            // }
 
+
+            if(limelightTX < -5 && limelightTA < 5) { 
+                m_driveSubsystem.driveWithValues(-0.5, 0.6);
+            } else if(limelightTX > 5 && limelightTA < 5) {
+                m_driveSubsystem.driveWithValues(-0.5, -0.6);
+            } else if(limelightTX < -5) {
+                m_driveSubsystem.driveWithValues(0, 0.6);
+            } else if(limelightTX > 5) {
+                m_driveSubsystem.driveWithValues(0, -0.6);
+            } else if(limelightTA < 5) {
+                m_driveSubsystem.driveWithValues(-0.5, 0);
+            } else {
+                m_driveSubsystem.driveWithValues(0, 0);
+            }
+        }
+        else{
+            m_driveSubsystem.driveWithValues(0, 0);
+        }
+          
+        }
+
+        //m_driveSubsystem.driveWithValues(0, 0);
+        // Determine screen offset to target
+//12% for limleight ta
         // call drive command to turn to target
 
-    }
+        
+    
+    
 
     // Called once the command ends or is interrupted.
     @Override
