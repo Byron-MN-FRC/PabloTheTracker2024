@@ -53,22 +53,22 @@ public class DriveChase extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        table = NetworkTableInstance.getDefault().getTable("limelight");
+        table = NetworkTableInstance.getDefault().getTable("limelight-cybears");
+        //m_driveSubsystem.resetChasePIDs();
     }
 
     private boolean hasTarget(){
-        return table.getEntry("tv").getDouble(0) == 0;
+        return table.getEntry("tv").getDouble(0) == 1;
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
         // See if we have a target
-        if (hasTarget()){
-            SmartDashboard.putNumber("Limelight tx", table.getEntry("tx").getDouble(0));
-            SmartDashboard.putNumber("Limelight ty", table.getEntry("ty").getDouble(0));
-            SmartDashboard.putNumber("Limelight ta", table.getEntry("ta").getDouble(0));
- 
+        if (!hasTarget()){
+            m_driveSubsystem.driveWithStick();
+        } else {
+            
         }
         
         m_driveSubsystem.driveWithValues(0, 0);
