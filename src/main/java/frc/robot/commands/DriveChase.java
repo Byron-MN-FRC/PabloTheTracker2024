@@ -68,10 +68,10 @@ public class DriveChase extends Command {
         if (!hasTarget()){
             m_driveSubsystem.driveWithStick();
         } else {
-            
+            m_driveSubsystem.driveWithValues(0, 0);            
         }
         
-        m_driveSubsystem.driveWithValues(0, 0);
+
         // Determine screen offset to target
 
         // call drive command to turn to target

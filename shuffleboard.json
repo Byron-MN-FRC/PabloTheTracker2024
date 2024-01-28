@@ -192,6 +192,22 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "16,0": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Field",
+              "_source0": "network_table:///SmartDashboard/Field",
+              "_title": "Field",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Game/Game": "k2024Crescendo",
+              "Visuals/Robot Icon Size": 50.0,
+              "Visuals/Show Outside Circles": false
+            }
           }
         }
       }
@@ -335,12 +351,42 @@
           }
         }
       }
+    },
+    {
+      "title": "Tab 3",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 64.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "7,3": {
+            "size": [
+              11,
+              8
+            ],
+            "content": {
+              "_type": "Field",
+              "_source0": "network_table:///SmartDashboard/Field",
+              "_title": "SmartDashboard/Field",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Game/Game": "k2024Crescendo",
+              "Visuals/Robot Icon Size": 50.0,
+              "Visuals/Show Outside Circles": false
+            }
+          }
+        }
+      }
     }
   ],
   "windowGeometry": {
-    "x": -6.0,
-    "y": 0.0,
-    "width": 1549.199951171875,
-    "height": 808.0
+    "x": 1528.0,
+    "y": 94.0,
+    "width": 1936.0,
+    "height": 1066.0
   }
 }
